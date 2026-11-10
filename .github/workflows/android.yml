@@ -16,6 +16,13 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      - name: Sync Capacitor Android
+        working-directory: apps/client
+        run: |
+          npm install -g pnpm@10
+          pnpm install --no-frozen-lockfile
+          pnpm exec cap sync android
+
       - name: Build Android APK
         working-directory: apps/client/android
         run: |
